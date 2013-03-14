@@ -28,7 +28,7 @@ php composer.phar create-project symfony/framework-standard-edition path/to/inst
 // app/AppKernel.php
 
   $bundles = array(
-            ...
+            //...
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
