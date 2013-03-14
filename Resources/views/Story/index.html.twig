@@ -1,0 +1,119 @@
+{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
+
+{% block title %}
+{{ parent() }} - Story {{ 'views.index.list'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+{% endblock %}
+
+{% block page %}
+
+<div class="row">
+
+    <div class="span8">
+        <h1>Story {{ 'views.index.list'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</h1>
+    </div>
+    <div class="span2">
+        {% if form_errors(filterForm) %}
+        <div class="alert alert-block alert-error fade in form-errors">
+            {{ form_errors(filterForm) }}
+        </div>
+        {% endif %}
+        &nbsp;
+    </div>
+    <div class="span2">
+        <div class="filters-right">
+            <a class="btn dropdown-toggle" data-toggle="collapse" data-target="#filters">
+                {{ 'views.index.filters'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+                <span class="caret"></span>
+            </a>
+        </div>
+    </div>
+
+    <div class="span12">
+        <div id="filters" class="collapse">
+
+            <form class="well" action="{{ path('story') }}" method="post" {{ form_enctype(filterForm) }}>
+                {{ form_row(filterForm.id) }}
+                {{ form_row(filterForm.issue) }}
+                {{ form_row(filterForm.title) }}
+                {{ form_row(filterForm.subtitle) }}
+                {{ form_row(filterForm.author) }}
+                {#{{ form_row(filterForm.created) }}#}
+                {{ form_row(filterForm.status) }}
+                {{ form_row(filterForm.location) }}
+                {{ form_row(filterForm.url) }}
+                {{ form_row(filterForm.displayColumn) }}
+                {{ form_row(filterForm.weight) }}
+                {{ form_row(filterForm.blurb) }}
+                {{ form_row(filterForm.text) }}
+                {{ form_rest(filterForm) }}
+
+                <p>
+                    <button type="submit" name="filter_action" value="reset">{{ 'views.index.reset'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+                    <button type="submit" name="filter_action" value="filter">{{ 'views.index.filter'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <div class="span12">
+
+    <table class="table table-striped table-bordered table-condensed">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Issue</th>
+            <th>Title</th>
+            <th>Subtitle</th>
+            <th>Author</th>
+            <th>Created</th>
+            <th>Status</th>
+            <th>Location</th>
+            <th>Url</th>
+            <th>Displaycolumn</th>
+            <th>Weight</th>
+            <th>Blurb</th>
+            <th>Text</th>
+            <th>{{ 'views.index.actions'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('story_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.issue.id }}</td>
+            <td>{{ entity.title }}</td>
+            <td>{{ entity.subtitle }}</td>
+            <td>{{ entity.author }}</td>
+            <td>{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.status }}</td>
+            <td>{{ entity.location }}</td>
+            <td>{{ entity.url }}</td>
+            <td>{{ entity.displayColumn }}</td>
+            <td>{{ entity.weight }}</td>
+            <td>{{ entity.blurb }}</td>
+            <td>{{ entity.text }}</td>
+            <td>
+        <a class="btn btn-mini" href="{{ path('story_show', { 'id': entity.id }) }}">
+            {{ 'views.actions.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+        </a>
+        <a class="btn btn-mini" href="{{ path('story_edit', { 'id': entity.id }) }}">
+            {{ 'views.actions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+        </a>            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    </div>
+
+    <div class="span4">
+    {{ pagerHtml|raw }}
+    </div>
+
+        <div class="span8">
+    <a class="btn btn-primary likepaginator" href="{{ path('story_new') }}">
+            {{ 'views.index.createnew'|trans({}, 'JordiLlonchCrudGeneratorBundle') }} Story
+        </a>
+    </div>
+    </div>
+
+{% endblock %}

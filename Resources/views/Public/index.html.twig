@@ -1,0 +1,70 @@
+{% extends 'Smith981NewsboxBundle::base.html.twig' %}
+{% block page %}
+	<div id="content">
+		<h2 id="news-header" class="display">Today's Top Stories</h2>
+		<img src="{{ entity.imageUrl }}" style="width:33%" />
+		<hr class="main-divider" >
+		{% block content %}
+			{% block column1 %}
+				<section id="column1" class="column">
+				{% for story in stories %}
+					{% if story.displayColumn == 1 %}
+				    <article class="story"><h3 class="story-title"><strong>{{ story.title }}</strong></h3><p><strong>by {{ story.author }}</strong><br /><em>{{ story.authorOrganization }}</em></p><p class="story-text"><span class='story-location'><strong>{{ story.location }}</strong>: </span>{{ story.blurb }}</p>
+				    	{% if story.imageUrl %}
+				    		<figure>
+						    	<img class="story-image" src="{{ story.imageUrl }}"></img>
+				    			<figcaption class="story-caption">{{ story.imageCaption }}</figcaption>
+				    		</figure>
+				    	{% endif %}
+				    	<footer>
+					    	<p class="story-link"><strong>Read the whole story at <a href="{{ story.url }}">{{ site_name }}</a></strong></p>
+						</footer>
+				    </article>
+				    <hr />
+				    {% endif %}
+				{% endfor %}
+				</section>
+			{% endblock %}
+			{% block column2 %}
+				<section id="column2" class="column">
+				{% for story in stories %}
+					{% if story.displayColumn == 2 %}
+				    <article class="story"><h3 class="story-title"><strong>{{ story.title }}</strong></h3><p><strong>by {{ story.author }}</strong><br /><em>{{ story.authorOrganization }}</em></p><p class="story-text"><span class='story-location'><strong>{{ story.location }}</strong>: </span>{{ story.blurb }}</p>
+				    	{% if story.imageUrl %}
+				    		<figure>
+						    	<img class="story-image" src="{{ story.imageUrl }}"></img>
+				    			<figcaption class="story-caption">{{ story.imageCaption }}</figcaption>
+				    		</figure>
+				    	{% endif %}
+				    	<footer>
+					    	<p class="story-link"><strong>Read the whole story at <a href="{{ story.url }}">{{ site_name }}</a></strong></p>
+						</footer>
+				    </article>
+				    <hr />
+				    {% endif %}
+				{% endfor %}
+				</section>
+			{% endblock %}
+			{% block column3 %}
+				<section id="column3" class="column">
+				{% for story in stories %}
+					{% if story.displayColumn == 3 %}
+				    <article class="story"><h3 class="story-title"><strong>{{ story.title }}</strong></h3><p><strong>by {{ story.author }}</strong><br /><em>{{ story.authorOrganization }}</em></p><p class="story-text"><span class='story-location'><strong>{{ story.location }}</strong>: </span>{{ story.blurb }}</p>
+				    	{% if story.imageUrl %}
+				    		<figure>
+						    	<img class="story-image" src="{{ story.imageUrl }}"></img>
+				    			<figcaption class="story-caption">{{ story.imageCaption }}</figcaption>
+				    		</figure>
+				    	{% endif %}
+				    	<footer>
+					    	<p class="story-link"><strong>Read the whole story at <a href="{{ story.url }}">{{ site_name }}</a></strong></p>
+						</footer>
+				    </article>
+				    <hr />
+				    {% endif %}
+				{% endfor %}
+				</section>
+			{% endblock %}
+		{% endblock %}
+	</div>	
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'Smith981NewsboxBundle::base.html.twig' %}
+
+{% block title %}
+{{ parent() }} - Story {{ 'views.show.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+{% endblock %}
+
+{% block page %}
+<style type="text/css">
+.blurb, .text {
+    display:block;
+    height:500px;
+    width:99%;
+}
+</style>
+<h1>Story</h1>
+
+<form class="form-horizontal">
+    <fieldset>        <div class="control-group">
+            <label class="control-label">Id</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.id }}</span>            </div>
+
+        </div>        
+        <div class="control-group">
+            <label class="control-label">Issue</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.issue.id }}</span>            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Title</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.title }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Subtitle</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.subtitle }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Author</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.author }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Created</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.created|date('Y-m-d H:i:s') }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Status</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.status }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Location</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.location }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Url</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.url }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Displaycolumn</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.displayColumn }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Weight</label>
+            <div class="controls">                <span class="input-xlarge uneditable-input">{{ entity.weight }}</span>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Blurb</label>
+            <div class="controls">                <textarea class="blurb input-xlarge uneditable-input">{{ entity.blurb }}</textarea>            </div>
+        </div>        <div class="control-group">
+            <label class="control-label">Text</label>
+            <div class="controls">                <textarea class="text input-xlarge uneditable-input">{{ entity.text }}</textarea>            </div>
+        </div>    
+    </fieldset>
+</form>
+
+<div>
+    <div class="float-left">
+        <a class="btn" href="{{ path('story') }}">
+            {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+        </a>
+    </div>
+    <div class="float-left">
+        <a class="btn btn-primary" href="{{ path('story_edit', { 'id': entity.id }) }}">
+            {{ 'views.recordactions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+        </a>
+    </div>
+    <div class="float-left">
+        <form action="{{ path('story_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button class="btn btn-danger" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}');">{{ 'views.recordactions.delete'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
