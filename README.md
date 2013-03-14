@@ -8,7 +8,7 @@ A simple issue-based online publishing platform. Not a blog.
 ### Composer
 1. Install from the command line the Symfony Standard Edition. Specify version 2.2.
 
-```bash
+```
 php composer.phar create-project symfony/framework-standard-edition path/to/install
 ```
 
@@ -22,7 +22,7 @@ php composer.phar create-project symfony/framework-standard-edition path/to/inst
 3. run `composer update` to install the new dependencies.
 4. Make sure all of these are present in your AppKernel::registerBundles() method:
 5. 
-```php
+```
 <?php
 
 // app/AppKernel.php
@@ -66,6 +66,7 @@ twig:
 Finally, under `framework` in the same file:
 
 ```yaml
+framework:
     translator:      { fallback: en }
 ```
 Note this can be whatever language you choose, or possible %locale% if you actually took the time to set this up correctly.
