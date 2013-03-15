@@ -1,7 +1,8 @@
 {% extends 'Smith981NewsboxBundle::base.html.twig' %}
 {% block page %}
 	<div id="content">
-		<h2 id="news-header" class="display">Today's Top Stories</h2>
+		<h1 id="print-header">{{ site_name }}</h1>
+		<h2 id="news-header" class="display">Top Stories for {{ "now"|date("l, F jS, Y") }}</h2>
 		<img src="{{ entity.imageUrl }}" style="width:33%" />
 		<hr class="main-divider" >
 		{% block content %}

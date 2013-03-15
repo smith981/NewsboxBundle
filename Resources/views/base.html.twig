@@ -18,11 +18,6 @@
 
     <!-- Le styles -->
     <link href="{{ asset('bundles/jordillonchcrudgenerator/css/bootstrap.css') }}" rel="stylesheet">
-    <style>
-        body {
-            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-        }
-    </style>
     <link href="{{ asset('bundles/jordillonchcrudgenerator/css/bootstrap-responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('bundles/jordillonchcrudgenerator/css/crud.css') }}" rel="stylesheet">
 
@@ -46,11 +41,17 @@
     <div class="navbar navbar-fixed-top navbar-inverse">
    		<div class="navbar-inner">
    			<header>
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
     			<a class="brand" href="{{ site_url }}">{{ site_name }}</a>
-    			<nav>
+    			<nav class="nav-collapse">
 	    			<ul class="nav">
    						{% for link in links %}
    						<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              <li class="divider-vertical"></li>
    						{% endfor %}
    					</ul>
    				</nav>

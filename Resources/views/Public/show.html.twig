@@ -1,5 +1,6 @@
 {% extends 'Smith981NewsboxBundle::base.html.twig' %}
 {% block page %}
+<div id="content">
 <section id="story-content">
     <article>
     <h1>{{ story.title }}</h1>
@@ -10,7 +11,8 @@
     {% endif %}
     <h6>by {{ story.author }}{% if story.authorOrganization is defined %}, {{ story.authorOrganization }}{% endif %}</h6>
     <h6>{{ story.created.format('D, M d, Y - h:m A') }}</h6>
-    <p class="story-show-text"><strong>{{ story.location }}</strong>: {{ story.text }}</p>
+    {#<p class="story-show-text"><strong>{{ story.location }}</strong>: {{ story.text }}</p>#}
+    <strong>{{ story.location }}:</strong> {{ story.text|nl2br }}
     </article>
 </section>
 
@@ -20,5 +22,6 @@
             {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
         </a>
     </div>
+</div>
 </div>
 {% endblock %}

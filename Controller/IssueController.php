@@ -339,7 +339,7 @@ class IssueController extends Controller
         list($entities, $pagerHtml) = $this->paginator($queryBuilder);
 
         return array(
-            'entities' => $entities,
+            'issues' => $entities,
             'pagerHtml' => $pagerHtml,
             'filterForm' => $filterForm->createView(),
         );

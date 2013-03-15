@@ -1,3 +1,64 @@
+@media screen {
+
+	h1#print-header {
+		display:none;
+	}
+
+}
+
+@media screen and (max-width:979px) {
+	#content {
+		padding-top: 0;
+		width:90%;
+	}
+
+	.column {
+		width:100%;
+	}
+
+	#column2 {
+		border:none !important;
+	}
+
+	img {
+		width:80% !important;
+	}
+
+	#story-content {
+		display:block;
+		width:100%;
+	}
+}
+
+@media screen and (min-width:980px) {
+
+	#content {
+    	padding-top: 60px !important; /* 60px to make the container go all the way to the bottom of the topbar */
+	}
+
+	.column {
+    	display: inline-block;
+    	padding-left: 1%;
+    	padding-right: 1%;
+    	vertical-align: top;
+    	width: 30%;
+	}
+
+	#story-content {
+		width: 66%;
+	}
+}
+
+@media print {
+	div.navbar {
+		display:none;
+	}
+
+	img {
+		display:none !important;
+	}
+}
+
 div#container {
 	display:block;
 
@@ -14,6 +75,15 @@ div#container {
 	width:100%;
 }
 
+#date {
+	display: inline;
+    float: right;
+    font-size: 20px;
+    font-weight: 200;
+    margin-right: 10px;
+    color: #999999;
+}
+
 .display {
 	/*font-family: 'Stint Ultra Expanded', cursive;*/
 }
@@ -27,7 +97,7 @@ p {
 	/*font-family: 'Quattrocento', serif;*/
 }
 
-div#nav {
+div.navbar {
 	width:100%;
 }
 
@@ -70,32 +140,8 @@ li.navlink a:hover {
 	color:darkred;
 }
 
-div#content {
-}
-
 h2#news-header {
 	text-align: center;
-}
-
-/*ul#stories {*/
-	
-/*
-	-moz-column-count: 3;
-	-webkit-column-count: 3;
-	column-count: 3;
-*/
-
-	/*-moz-column-gap: 20px;*/
-	/*-webkit-column-gap: 20px;*/
-	/*column-gap: 20px;*/
-
-/*
-	-moz-column-rule-style: solid;
-	-moz-column-rule-width: 2px;
-
-	-webkit-column-rule-style: solid;
-	-webkit-column-rule-width: 2px;
-*/
 }
 
 h3.story-title {
@@ -116,14 +162,6 @@ p.story-link {
 	margin-left:auto;
 	margin-right:auto;
 
-}
-
-.column {
-    display: inline-block;
-    padding-left: 1%;
-    padding-right: 1%;
-    vertical-align: top;
-    width: 30%;
 }
 
 #column2 {
@@ -147,7 +185,6 @@ p.story-link {
 	text-align:left;
 	margin-left:auto;
 	margin-right:auto;
-	width:66%;
 }
 
 .story p.story-text {

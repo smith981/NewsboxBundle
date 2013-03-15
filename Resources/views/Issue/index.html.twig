@@ -34,7 +34,7 @@
             <form class="well" action="{{ path('issue') }}" method="post" {{ form_enctype(filterForm) }}>
                 {{ form_row(filterForm.id) }}
                 {{ form_row(filterForm.created) }}
-                {{ form_row(filterForm.image) }}
+                {{ form_row(filterForm.imageUrl) }}
                 {{ form_row(filterForm.publishedDate) }}
                 {{ form_row(filterForm.status) }}
                 {{ form_rest(filterForm) }}
