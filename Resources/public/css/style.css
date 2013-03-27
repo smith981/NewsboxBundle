@@ -6,6 +6,7 @@
 
 }
 
+/* mobile only */
 @media screen and (max-width:979px) {
 	#content {
 		padding-top: 0;
@@ -30,6 +31,7 @@
 	}
 }
 
+/* desktop only */
 @media screen and (min-width:980px) {
 
 	#content {
@@ -67,7 +69,7 @@ div#container {
 	width:100%;
 	margin-left: auto;
     margin-right: auto;
-    margin-top: 2em;
+    margin-top: 4em;
 }
 
 .container {

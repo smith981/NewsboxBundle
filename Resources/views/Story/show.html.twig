@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block page %}
+<div id="content">
+
 <style type="text/css">
 .blurb, .text {
     display:block;
@@ -78,5 +80,6 @@
             <button class="btn btn-danger" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}');">{{ 'views.recordactions.delete'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
         </form>
     </div>
+</div>
 </div>
 {% endblock %}

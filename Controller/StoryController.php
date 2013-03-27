@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\View\TwitterBootstrapView;
-
+use JMS\SecurityExtraBundle\Annotation\Secure;
 use Smith981\NewsboxBundle\Entity\Story;
 use Smith981\NewsboxBundle\Form\StoryType;
 use Smith981\NewsboxBundle\Form\StoryFilterType;
@@ -28,9 +28,11 @@ class StoryController extends Controller
      * @Route("admin/story/", name="story")
      * @Method("GET")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function indexAction()
     {
+
         list($filterForm, $queryBuilder) = $this->filter();
 
         list($entities, $pagerHtml) = $this->paginator($queryBuilder);
@@ -120,6 +122,7 @@ class StoryController extends Controller
      * @Route("admin/story/", name="story_create")
      * @Method("POST")
      * @Template("Smith981NewsboxBundle:Story:new.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function createAction(Request $request)
     {
@@ -163,6 +166,7 @@ class StoryController extends Controller
      * @Route("admin/story/new", name="story_new")
      * @Method("GET")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function newAction()
     {
@@ -181,6 +185,7 @@ class StoryController extends Controller
      * @Route("admin/story/{id}", name="story_show")
      * @Method("GET")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function showAction($id)
     {
@@ -206,6 +211,7 @@ class StoryController extends Controller
      * @Route("admin/story/{id}/edit", name="story_edit")
      * @Method("GET")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function editAction($id)
     {
@@ -234,6 +240,7 @@ class StoryController extends Controller
      * @Method("PUT")
      * @Method("POST")
      * @Template("Smith981NewsboxBundle:Story:edit.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function updateAction(Request $request, $id)
     {
@@ -277,6 +284,7 @@ class StoryController extends Controller
      *
      * @Route("admin/story/{id}", name="story_delete")
      * @Method("DELETE")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function deleteAction(Request $request, $id)
     {
@@ -307,6 +315,7 @@ class StoryController extends Controller
      * @param mixed $id The entity id
      *
      * @return Symfony\Component\Form\Form The form
+     * @Secure(roles="ROLE_ADMIN")
      */
     private function createDeleteForm($id)
     {

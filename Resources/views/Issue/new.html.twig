@@ -1,10 +1,11 @@
-{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
+{% extends 'Smith981NewsboxBundle::base.html.twig' %}
 
 {% block title %}
 {{ parent() }} - Issue {{ 'views.new.creation'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
 {% endblock %}
 
 {% block page %}
+<div id="content">
 
 <h1>Issue {{ 'views.new.creation'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</h1>
 
@@ -21,5 +22,6 @@
             {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
         </a>
     </div>
+</div>
 </div>
 {% endblock %}

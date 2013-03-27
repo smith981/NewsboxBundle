@@ -1,10 +1,12 @@
-{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
+{% extends 'Smith981NewsboxBundle::base.html.twig' %}
 
 {% block title %}
 {{ parent() }} - Story {{ 'views.edit.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
 {% endblock %}
 
 {% block page %}
+<div id="content">
+
 <style type="text/css">
 textarea#smith981_newsboxbundle_storytype_blurb, textarea#smith981_newsboxbundle_storytype_text {
     display:block;
@@ -33,5 +35,6 @@ textarea#smith981_newsboxbundle_storytype_blurb, textarea#smith981_newsboxbundle
             <button class="btn btn-danger" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}');">{{ 'views.recordactions.delete'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
         </form>
     </div>
+</div>
 </div>
 {% endblock %}

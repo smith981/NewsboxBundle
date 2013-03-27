@@ -1,10 +1,11 @@
-{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
+{% extends 'Smith981NewsboxBundle::base.html.twig' %}
 
 {% block title %}
 {{ parent() }} - Story {{ 'views.index.list'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
 {% endblock %}
 
 {% block page %}
+<div id="content">
 
 <div class="row">
 
@@ -115,5 +116,5 @@
         </a>
     </div>
     </div>
-
+</div>
 {% endblock %}

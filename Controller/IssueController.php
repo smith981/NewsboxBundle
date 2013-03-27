@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\View\TwitterBootstrapView;
-
+use JMS\SecurityExtraBundle\Annotation\Secure;
 use Smith981\NewsboxBundle\Entity\Issue;
 use Smith981\NewsboxBundle\Form\IssueType;
 use Smith981\NewsboxBundle\Form\IssueFilterType;
@@ -28,6 +28,7 @@ class IssueController extends Controller
      * @Route("admin/issue/", name="issue")
      * @Method("GET")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function indexAction()
     {
@@ -120,6 +121,7 @@ class IssueController extends Controller
      * @Route("/admin/issue", name="issue_create")
      * @Method("POST")
      * @Template("Smith981NewsboxBundle:Issue:new.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function createAction(Request $request)
     {
@@ -148,6 +150,7 @@ class IssueController extends Controller
      * @Route("/admin/issue/new", name="issue_new")
      * @Method("GET")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function newAction()
     {
@@ -166,6 +169,7 @@ class IssueController extends Controller
      * @Route("admin/issue/{id}", name="issue_show")
      * @Method("GET")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function showAction($id)
     {
@@ -191,6 +195,7 @@ class IssueController extends Controller
      * @Route("admin/{id}/edit", name="issue_edit")
      * @Method("GET")
      * @Template()
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function editAction($id)
     {
@@ -219,6 +224,7 @@ class IssueController extends Controller
      * @Method("PUT")
      * @Method("POST")
      * @Template("Smith981NewsboxBundle:Issue:edit.html.twig")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function updateAction(Request $request, $id)
     {
@@ -256,6 +262,7 @@ class IssueController extends Controller
      *
      * @Route("admin/issue/{id}", name="issue_delete")
      * @Method("DELETE")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function deleteAction(Request $request, $id)
     {

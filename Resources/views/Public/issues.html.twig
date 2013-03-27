@@ -1,0 +1,18 @@
+{% extends "Smith981NewsboxBundle::base.html.twig" %}
+{% block page %}
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+	<div id="content">
+		<header><h2>Issues</h2></header>
+		<nav>
+			<ul>
+{% for issue in issues %}
+				<li><a href="{{ site_url }}">{{ issue }} - {{ issue.publishedDate.format("Y-m-d") }}</a></li>
+{% endfor %}
+			</ul>
+		</nav>
+	</div>
+</body>
+{% endblock %}
