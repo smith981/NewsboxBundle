@@ -1,27 +1,26 @@
 {% extends 'Smith981NewsboxBundle::base.html.twig' %}
 {% block page %}
-<div id="content">
-<section id="story-content">
-    <article>
-    <h1>{{ story.title }}</h1>
-    <h3>{{ story.subtitle }}</h3>
-    {% if story.imageUrl is defined %}
-        <img src="{{ story.imageUrl }}" style="width:30%">
-        <figcaption>{{ story.image }}</figcaption>
-    {% endif %}
-    <h6>by {{ story.author }}{% if story.authorOrganization is defined %}, {{ story.authorOrganization }}{% endif %}</h6>
-    <h6>{{ story.created.format('D, M d, Y - h:m A') }}</h6>
-    {#<p class="story-show-text"><strong>{{ story.location }}</strong>: {{ story.text }}</p>#}
-    <strong>{{ story.location }}:</strong> {{ story.text|nl2br }}
-    </article>
-</section>
-
-<div>
-    <div class="float-left">
-        <a class="btn" href="{{ path('issue_public_show', { 'id': story.issue.id }) }}">
-            {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
-        </a>
+<div id="content-public">
+    <section id="story-content">
+        <article>
+        <h1>{{ story.title }}</h1>
+        <h3>{{ story.subtitle }}</h3>
+        {% if story.imageUrl is defined %}
+            <img src="{{ story.imageUrl }}" style="width:30%">
+            <figcaption>{{ story.image }}</figcaption>
+        {% endif %}
+        <h6>by {{ story.author }}{% if story.authorOrganization is defined %}, {{ story.authorOrganization }}{% endif %}</h6>
+        <h6>{{ story.created.format('D, M d, Y - h:m A') }}</h6>
+        {#<p class="story-show-text"><strong>{{ story.location }}</strong>: {{ story.text }}</p>#}
+        <strong>{{ story.location }}:</strong> {{ story.text|nl2br }}
+        </article>
+    </section>
+    <div>
+        <div class="float-left">
+            <a class="btn" href="{{ path('issue_public_show', { 'id': story.issue.id }) }}">
+                {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+            </a>
+        </div>
     </div>
-</div>
 </div>
 {% endblock %}

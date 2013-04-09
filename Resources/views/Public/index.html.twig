@@ -1,6 +1,6 @@
 {% extends 'Smith981NewsboxBundle::base.html.twig' %}
 {% block page %}
-	<div id="content">
+	<div id="content-public">
 		<h1 id="print-header">{{ site_name }}</h1>
 		<h2 id="news-header" class="display">Top Stories for {{ "now"|date("l, F jS, Y") }}</h2>
 		<img src="{{ entity.imageUrl }}" style="width:33%" />
@@ -18,7 +18,7 @@
 				    		</figure>
 				    	{% endif %}
 				    	<footer>
-					    	<p class="story-link"><strong>Read the whole story at <a href="{{ story.url }}">{{ site_name }}</a></strong></p>
+					    	<p class="story-link"><strong>Read the whole story at <a href="{{ path('story_public_show', { 'id': story.id }) }}">{{ site_name }}</a></strong></p>
 						</footer>
 				    </article>
 				    <hr />
@@ -38,7 +38,7 @@
 				    		</figure>
 				    	{% endif %}
 				    	<footer>
-					    	<p class="story-link"><strong>Read the whole story at <a href="{{ story.url }}">{{ site_name }}</a></strong></p>
+					    	<p class="story-link"><strong>Read the whole story at <a href="{{ path('story_public_show', { 'id': story.id }) }}">{{ site_name }}</a></strong></p>
 						</footer>
 				    </article>
 				    <hr />
@@ -58,7 +58,7 @@
 				    		</figure>
 				    	{% endif %}
 				    	<footer>
-					    	<p class="story-link"><strong>Read the whole story at <a href="{{ story.url }}">{{ site_name }}</a></strong></p>
+					    	<p class="story-link"><strong>Read the whole story at <a href="{{ path('story_public_show', { 'id': story.id }) }}">{{ site_name }}</a></strong></p>
 						</footer>
 				    </article>
 				    <hr />

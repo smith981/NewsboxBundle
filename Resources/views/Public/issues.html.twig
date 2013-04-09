@@ -4,12 +4,12 @@
 <head>
 </head>
 <body>
-	<div id="content">
+	<div id="content-public">
 		<header><h2>Issues</h2></header>
 		<nav>
 			<ul>
 {% for issue in issues %}
-				<li><a href="{{ site_url }}">{{ issue }} - {{ issue.publishedDate.format("Y-m-d") }}</a></li>
+				<li><a href="{{ path('issue_public_show', { 'id': issue.id }) }}">{{ issue }} - {{ issue.publishedDate.format("Y-m-d") }}</a></li>
 {% endfor %}
 			</ul>
 		</nav>

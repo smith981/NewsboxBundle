@@ -34,6 +34,9 @@ class IssueController extends Controller
     {
         list($filterForm, $queryBuilder) = $this->filter();
 
+        $queryBuilder->orderBy('e.publishedDate', 'desc');
+        $queryBuilder->addOrderBy('e.id', 'desc');
+
         list($entities, $pagerHtml) = $this->paginator($queryBuilder);
 
         return array(
@@ -126,6 +129,9 @@ class IssueController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new Issue();
+
+        $entity->setCreated(new \DateTime());
+
         $form = $this->createForm(new IssueType(), $entity);
         $form->bind($request);
 
@@ -241,6 +247,17 @@ class IssueController extends Controller
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
+
+            /**
+             * If issue is being published, set the Published Date to current date time.
+             */
+            if($entity->getStatus() == 1) {
+                $entity->setPublishedDate(new \DateTime());
+            }
+            else {
+                $entity->setPublishedDate(null);
+            }
+
             $em->persist($entity);
             $em->flush();
             $this->get('session')->getFlashBag()->add('success', 'flash.update.success');
@@ -316,7 +333,7 @@ class IssueController extends Controller
 
         $entity = $em->getRepository('Smith981NewsboxBundle:Issue')->find($id);
 
-        if (!$entity) {
+        if (!$entity || $entity->getStatus() != 1) {
             throw $this->createNotFoundException('Unable to find Issue ' . $id);
         }
 
@@ -334,7 +351,7 @@ class IssueController extends Controller
     /**
      * Lists all Issue entities
      *
-     * @Route("issue/", name="issue_public_index")
+     * @Route("issueslist", name="issue_public_index")
      * @Method("GET")
      * @Template("Smith981NewsboxBundle:Public:issues.html.twig")
      */
@@ -343,12 +360,53 @@ class IssueController extends Controller
 
         list($filterForm, $queryBuilder) = $this->filter();
 
+        $queryBuilder->add('where', 'e.status = 1');
+        $queryBuilder->orderBy('e.publishedDate', 'desc');
+        $queryBuilder->addOrderBy('e.id', 'desc');
+
         list($entities, $pagerHtml) = $this->paginator($queryBuilder);
 
         return array(
             'issues' => $entities,
             'pagerHtml' => $pagerHtml,
             'filterForm' => $filterForm->createView(),
+        );
+    }
+
+    /**
+     * Show most recent issue
+     *
+     * @Route("/", name="public_home")
+     * @Method("GET")
+     * @Template("Smith981NewsboxBundle:Public:index.html.twig")
+     */
+    public function publicHomeAction()
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $queryBuilder = $em->getRepository('Smith981NewsboxBundle:Issue')->createQueryBuilder('e'); 
+        $queryBuilder->select()
+                     ->from('Smith981NewsboxBundle:Issue', 'i')
+                     ->where('e.status = 1')
+                     ->orderBy('e.id', 'desc');
+
+        /**
+         * @todo Get a single result instead of just grabbing the first from the array
+         */
+        $entities = $queryBuilder->getQuery()->getResult();
+        $entity = $entities[0];
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find a published issue');
+        }
+
+        $stories = $entity->getStories();
+        $imageUrl = $entity->getImageUrl();
+
+        return array(
+            'stories'     => $stories,
+            'entity'      => $entity
         );
     }
 }

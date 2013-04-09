@@ -11,10 +11,10 @@ class IssueType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('created')
-            ->add('imageUrl')
-            ->add('publishedDate')
-            ->add('status')
+            //->add('created')
+            ->add('imageUrl', 'textarea', array('label' => 'Image URL'))
+            //->add('publishedDate')
+            ->add('status', 'choice', array('choices' => array(0 => 'Draft', 1 => 'Published')))
         ;
     }
 

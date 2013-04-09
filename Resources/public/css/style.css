@@ -8,7 +8,7 @@
 
 /* mobile only */
 @media screen and (max-width:979px) {
-	#content {
+	#content-public {
 		padding-top: 0;
 		width:90%;
 	}
@@ -34,7 +34,7 @@
 /* desktop only */
 @media screen and (min-width:980px) {
 
-	#content {
+	#content-public {
     	padding-top: 60px !important; /* 60px to make the container go all the way to the bottom of the topbar */
 	}
 
@@ -72,9 +72,41 @@ div#container {
     margin-top: 4em;
 }
 
+.alert {
+	margin-top:50px;
+}
+
 .container {
 	display:block;
 	width:100%;
+}
+
+.container #content {
+	width:75%;
+	display:block;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+.container #container {
+	margin-left:25px;
+}
+
+div#content {
+	padding-top:75px;
+}
+
+#content .row {
+	margin-left:0;
+}
+
+.story-admin td {
+	height:4em;
+	overflow:hidden;
+}
+
+#create-story {
+	margin-left:430px;
 }
 
 #date {
@@ -90,7 +122,7 @@ div#container {
 	/*font-family: 'Stint Ultra Expanded', cursive;*/
 }
 
-h1 {
+#content-public h1 {
 	text-align: center;
 	/*font-family: 'Francois One', sans-serif;*/
 }
@@ -159,7 +191,7 @@ p.story-link {
 	text-align:center;
 }
 
-#content {
+#content-public {
 	text-align:center;
 	margin-left:auto;
 	margin-right:auto;

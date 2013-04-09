@@ -19,7 +19,7 @@ class StoryType extends AbstractType
             ->add('status', 'choice', array('choices' => array(0 => 'Draft', 1 => 'Published')))
             ->add('location')
 //            ->add('url')
-            ->add('displayColumn', 'choice', array('choices' => array(1 => 1, 2 => 2, 3 => 3)))
+            ->add('displayColumn', 'choice', array('label' => 'Display Column', 'choices' => array(1 => 1, 2 => 2, 3 => 3)))
             ->add('weight')
             ->add('blurb')
             ->add('text')

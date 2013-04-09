@@ -35,6 +35,9 @@ class StoryController extends Controller
 
         list($filterForm, $queryBuilder) = $this->filter();
 
+        $queryBuilder->orderBy('e.created', 'desc');
+        $queryBuilder->addOrderBy('e.id', 'desc');
+
         list($entities, $pagerHtml) = $this->paginator($queryBuilder);
 
         return array(
