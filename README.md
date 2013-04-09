@@ -34,6 +34,7 @@ php composer.phar create-project symfony/framework-standard-edition path/to/inst
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
             new JordiLlonch\Bundle\CrudGeneratorBundle\JordiLlonchCrudGeneratorBundle(),
+            new Smith981\SecurityBundle\Smith981SecurityBundle(),
             new Smith981\NewsboxBundle\Smith981NewsboxBundle(),
         );
 ```
@@ -61,6 +62,13 @@ twig:
   globals:
     site_name: "YourSiteName"
     site_url:  "http://www.yoursite.com"
+```
+
+Be sure `strict_variables` is turned off. For a standard install that means commenting this line under `twig`:
+
+```
+twig:
+  #strict_variables: %kernel.debug%
 ```
 
 Finally, under `framework` in the same file:

@@ -2,7 +2,8 @@
     "name": "smith981/newsboxbundle",
     "description": "A simple online publishing bundle. Not a blog.",
     "autoload": {
-        "psr-0": { "": "src/" }
+        "psr-0": { "": "Entity/" },
+        "files": [ "Smith981NewsboxBundle.php" ]
     },
     "require": {
         "php": ">=5.3.3",
