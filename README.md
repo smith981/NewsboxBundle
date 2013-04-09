@@ -16,7 +16,6 @@ php composer.phar create-project symfony/framework-standard-edition path/to/inst
   
   * "jms/security-extra-bundle": "1.4.*",
   * "jms/di-extra-bundle": "1.3.*",
-  * "jordillonch/crud-generator": "dev-master",
   * "smith981/newsboxbundle": "dev-master"
 
 3. run `composer update` to install the new dependencies.
@@ -69,6 +68,58 @@ Be sure `strict_variables` is turned off. For a standard install that means comm
 ```
 twig:
   #strict_variables: %kernel.debug%
+```
+
+In app/config/security.yml, remove all of the demo firewalls (if installed), and import those created by Smith981SecurityBundle:
+
+```
+# app/config/security.yml
+#Added this import manually, and cleared all the default firewalls and access control that had been generated
+imports:
+    - { resource: "@Smith981SecurityBundle/Resources/config/security.yml" }
+
+# ... whatever other security settings you need, then remove the demo firewalls below:
+
+#firewalls:
+#        dev:
+#            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+#            security: false
+
+#        login:
+#            pattern:  ^/demo/secured/login$
+#            security: false
+
+#        secured_area:
+#            pattern:    ^/demo/secured/
+#            form_login:
+#                check_path: _security_check
+#                login_path: _demo_login
+#            logout:
+#                path:   _demo_logout
+#                target: _demo
+#        
+#        #access_control:
+#        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+```
+
+In app/config/routing.yml, add the following:
+
+```
+# app/config/routing.yml
+
+#Added this entry manually
+smith981_security_additional:
+    resource: "@Smith981SecurityBundle/Resources/config/routing.yml"
+
+smith981_security:
+    resource: "@Smith981SecurityBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+smith981_newsbox:
+    resource: "@Smith981NewsboxBundle/Controller/"
+    type:     annotation
+    prefix:   /
 ```
 
 Finally, under `framework` in the same file:
