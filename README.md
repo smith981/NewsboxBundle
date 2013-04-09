@@ -17,7 +17,7 @@ php composer.phar create-project symfony/framework-standard-edition path/to/inst
   * "jms/security-extra-bundle": "1.4.*",
   * "jms/di-extra-bundle": "1.3.*",
   * "jordillonch/crud-generator": "dev-master",
-  * "smith981/NewsboxBundle"
+  * "smith981/newsboxbundle": "dev-master"
 
 3. run `composer update` to install the new dependencies.
 4. Make sure all of these are present in your AppKernel::registerBundles() method:
