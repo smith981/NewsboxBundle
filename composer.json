@@ -2,12 +2,11 @@
     "name": "smith981/newsboxbundle",
     "description": "A simple online publishing bundle. Not a blog.",
     "autoload": {
-        "psr-0": { "Smith981": "Entity/Smith981/" },
         "files": [ "Smith981NewsboxBundle.php", 
                    "Controller/IssueController.php", 
                    "Controller/StoryController.php", 
-                   "Entity/Smith981/NewsboxBundle/Issue.php", 
-                   "Entity/Smith981/NewsboxBundle/Story.php" ]
+                   "Entity/Issue.php", 
+                   "Entity/Story.php" ]
     },
     "require": {
         "php": ">=5.3.3",
