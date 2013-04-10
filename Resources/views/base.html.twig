@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}{{ 'views.layout.bannersadmin'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}{% endblock %}</title>
+    <title>{% block title %}{{ 'views.layout.bannersadmin'|trans({}, 'Smith981CrudGeneratorBundle') }}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -72,7 +72,7 @@
 {% for type, flashMessages in app.session.flashbag.all() %}
     {% for flashMessage in flashMessages %}
             <div class="alert alert-{{ type }}">
-                {{ flashMessage|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+                {{ flashMessage|trans({}, 'Smith981CrudGeneratorBundle') }}
             </div>
         {% endfor %}
     {% endfor %}

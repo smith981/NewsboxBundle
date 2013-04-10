@@ -3,7 +3,7 @@
     "description": "A simple online publishing bundle. Not a blog.",
     "autoload": {
         "psr-0": { "": "Entity/" },
-        "files": [ "Smith981NewsboxBundle.php" ]
+        "files": [ "Smith981NewsboxBundle.php", "Controller/IssueController.php", "Controller/StoryController.php" ]
     },
     "require": {
         "php": ">=5.3.3",

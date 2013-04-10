@@ -32,7 +32,7 @@ php composer.phar create-project symfony/framework-standard-edition path/to/inst
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Lexik\Bundle\FormFilterBundle\LexikFormFilterBundle(),
-            new JordiLlonch\Bundle\CrudGeneratorBundle\JordiLlonchCrudGeneratorBundle(),
+            new Smith981\CrudGeneratorBundle\Smith981CrudGeneratorBundle(),
             new Smith981\SecurityBundle\Smith981SecurityBundle(),
             new Smith981\NewsboxBundle\Smith981NewsboxBundle(),
         );
