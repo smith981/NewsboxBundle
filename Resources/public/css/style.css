@@ -8,9 +8,19 @@
 
 /* mobile only */
 @media screen and (max-width:979px) {
+	body {
+		padding-left:0;
+		padding-right:0;
+	}
+
 	#content-public {
 		padding-top: 0;
 		width:90%;
+	}
+
+	.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+		margin-left:0;
+		margin-right:0;
 	}
 
 	.column {
