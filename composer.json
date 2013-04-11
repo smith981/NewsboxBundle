@@ -2,11 +2,17 @@
     "name": "smith981/newsboxbundle",
     "description": "A simple online publishing bundle. Not a blog.",
     "autoload": {
-        "files": [ "Smith981NewsboxBundle.php", 
+        "files": [ 
+                   "Smith981NewsboxBundle.php", 
                    "Controller/IssueController.php", 
                    "Controller/StoryController.php", 
                    "Entity/Issue.php", 
-                   "Entity/Story.php" ]
+                   "Entity/Story.php", 
+                   "Form/IssueType.php", 
+                   "Form/IssueFilterType.php", 
+                   "Form/StoryType.php",
+                   "Form/StoryFilterType.php" 
+                   ]
     },
     "require": {
         "php": ">=5.3.3",
