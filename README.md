@@ -122,12 +122,46 @@ smith981_newsbox:
     prefix:   /
 ```
 
-Finally, under `framework` in the same file:
+Next, under `framework` in the same file:
 
 ```yaml
 framework:
     translator:      { fallback: en }
 ```
 Note this can be whatever language you choose, or possible %locale% if you actually took the time to set this up correctly.
+
+In routing_dev.yml, remove all of the demo routes:
+
+```yaml
+#_welcome:
+#    pattern:  /
+#    defaults: { _controller: AcmeDemoBundle:Welcome:index }
+
+#_demo_secured:
+#    resource: "@AcmeDemoBundle/Controller/SecuredController.php"
+#    type:     annotation
+
+#_demo:
+#    resource: "@AcmeDemoBundle/Controller/DemoController.php"
+#    type:     annotation
+#    prefix:   /demo
+```
+
+_wdt:
+    resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"
+    prefix:   /_wdt
+
+_profiler:
+    resource: "@WebProfilerBundle/Resources/config/routing/profiler.xml"
+    prefix:   /_profiler
+
+_configurator:
+    resource: "@SensioDistributionBundle/Resources/config/routing/webconfigurator.xml"
+    prefix:   /_configurator
+
+_main:
+    resource: routing.yml
+
+```
 
 6. You should be ready to go at this point. Browse to /app_dev.php/admin to log in and start adding issues, and stories which relate to those issues. Those are the only two entity types added by this package. The rest is just an admin console and view templates.
