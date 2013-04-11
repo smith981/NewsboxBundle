@@ -1,7 +1,7 @@
 {% extends 'Smith981NewsboxBundle::base.html.twig' %}
 
 {% block title %}
-{{ parent() }} - Issue {{ 'views.show.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+{{ parent() }} - Issue {{ 'views.show.show'|trans({}, 'Smith981CrudGeneratorBundle') }}
 {% endblock %}
 
 {% block page %}
@@ -38,18 +38,18 @@
 <div>
     <div class="float-left">
         <a class="btn" href="{{ path('issue') }}">
-            {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+            {{ 'views.recordactions.backtothelist'|trans({}, 'Smith981CrudGeneratorBundle') }}
         </a>
     </div>
     <div class="float-left">
         <a class="btn btn-primary" href="{{ path('issue_edit', { 'id': entity.id }) }}">
-            {{ 'views.recordactions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+            {{ 'views.recordactions.edit'|trans({}, 'Smith981CrudGeneratorBundle') }}
         </a>
     </div>
     <div class="float-left">
         <form action="{{ path('issue_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button class="btn btn-danger" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}');">{{ 'views.recordactions.delete'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+            <button class="btn btn-danger" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'Smith981CrudGeneratorBundle') }}');">{{ 'views.recordactions.delete'|trans({}, 'Smith981CrudGeneratorBundle') }}</button>
         </form>
     </div>
 </div>

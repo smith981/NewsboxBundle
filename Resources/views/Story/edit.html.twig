@@ -1,7 +1,7 @@
 {% extends 'Smith981NewsboxBundle::base.html.twig' %}
 
 {% block title %}
-{{ parent() }} - Story {{ 'views.edit.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+{{ parent() }} - Story {{ 'views.edit.edit'|trans({}, 'Smith981CrudGeneratorBundle') }}
 {% endblock %}
 
 {% block page %}
@@ -14,25 +14,25 @@ textarea#smith981_newsboxbundle_storytype_blurb, textarea#smith981_newsboxbundle
     width:99%;
 }
 </style>
-<h1>Story {{ 'views.edit.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</h1>
+<h1>Story {{ 'views.edit.edit'|trans({}, 'Smith981CrudGeneratorBundle') }}</h1>
 
 <form class="well" action="{{ path('story_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_widget(edit_form) }}
     <p>
-        <button type="submit" class="btn btn-success">{{ 'views.edit.editbutton'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+        <button type="submit" class="btn btn-success">{{ 'views.edit.editbutton'|trans({}, 'Smith981CrudGeneratorBundle') }}</button>
     </p>
 </form>
 
 <div>
     <div class="float-left">
         <a class="btn" href="{{ path('story') }}">
-            {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+            {{ 'views.recordactions.backtothelist'|trans({}, 'Smith981CrudGeneratorBundle') }}
         </a>
     </div>
     <div class="float-left">
         <form action="{{ path('story_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button class="btn btn-danger" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}');">{{ 'views.recordactions.delete'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+            <button class="btn btn-danger" type="submit" onclick="return confirm('{{ 'views.recordactions.confirm'|trans({}, 'Smith981CrudGeneratorBundle') }}');">{{ 'views.recordactions.delete'|trans({}, 'Smith981CrudGeneratorBundle') }}</button>
         </form>
     </div>
 </div>

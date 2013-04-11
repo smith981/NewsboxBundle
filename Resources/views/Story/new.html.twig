@@ -1,25 +1,25 @@
 {% extends 'Smith981NewsboxBundle::base.html.twig' %}
 
 {% block title %}
-{{ parent() }} - Story {{ 'views.new.creation'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+{{ parent() }} - Story {{ 'views.new.creation'|trans({}, 'Smith981CrudGeneratorBundle') }}
 {% endblock %}
 
 {% block page %}
 <div id="content">
 
-<h1>Story {{ 'views.new.creation'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</h1>
+<h1>Story {{ 'views.new.creation'|trans({}, 'Smith981CrudGeneratorBundle') }}</h1>
 
 <form class="well" action="{{ path('story_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
-        <button type="submit" class="btn btn-success">{{ 'views.new.create'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+        <button type="submit" class="btn btn-success">{{ 'views.new.create'|trans({}, 'Smith981CrudGeneratorBundle') }}</button>
     </p>
 </form>
 
 <div>
     <div class="float-left">
         <a class="btn" href="{{ path('story') }}">
-            {{ 'views.recordactions.backtothelist'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+            {{ 'views.recordactions.backtothelist'|trans({}, 'Smith981CrudGeneratorBundle') }}
         </a>
     </div>
 </div>

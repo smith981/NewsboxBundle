@@ -1,7 +1,7 @@
 {% extends 'Smith981NewsboxBundle::base.html.twig' %}
 
 {% block title %}
-{{ parent() }} - Issue {{ 'views.index.list'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+{{ parent() }} - Issue {{ 'views.index.list'|trans({}, 'Smith981CrudGeneratorBundle') }}
 {% endblock %}
 
 {% block page %}
@@ -9,7 +9,7 @@
 <div class="row">
 
     <div class="span8">
-        <h1>Issue {{ 'views.index.list'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</h1>
+        <h1>Issue {{ 'views.index.list'|trans({}, 'Smith981CrudGeneratorBundle') }}</h1>
     </div>
     <div class="span2">
         {% if form_errors(filterForm) %}
@@ -22,11 +22,11 @@
     <div class="span2">
         <div class="filters-right">
             <a class="btn dropdown-toggle" data-toggle="collapse" data-target="#filters">
-                {{ 'views.index.filters'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+                {{ 'views.index.filters'|trans({}, 'Smith981CrudGeneratorBundle') }}
                 <span class="caret"></span>
             </a>
         </div>
-        <a class="btn btn-primary likepaginator" href="{{ path('issue_new') }}">{{ 'views.index.createnew'|trans({}, 'JordiLlonchCrudGeneratorBundle') }} Issue</a>
+        <a class="btn btn-primary likepaginator" href="{{ path('issue_new') }}">{{ 'views.index.createnew'|trans({}, 'Smith981CrudGeneratorBundle') }} Issue</a>
     </div>
 
     <div class="span12">
@@ -41,8 +41,8 @@
                 {{ form_rest(filterForm) }}
 
                 <p>
-                    <button type="submit" name="filter_action" value="reset">{{ 'views.index.reset'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
-                    <button type="submit" name="filter_action" value="filter">{{ 'views.index.filter'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</button>
+                    <button type="submit" name="filter_action" value="reset">{{ 'views.index.reset'|trans({}, 'Smith981CrudGeneratorBundle') }}</button>
+                    <button type="submit" name="filter_action" value="filter">{{ 'views.index.filter'|trans({}, 'Smith981CrudGeneratorBundle') }}</button>
                 </p>
             </form>
         </div>
@@ -58,7 +58,7 @@
             <th>Image URL</th>
             <th>Published Date</th>
             <th>Status</th>
-            <th>{{ 'views.index.actions'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}</th>
+            <th>{{ 'views.index.actions'|trans({}, 'Smith981CrudGeneratorBundle') }}</th>
         </tr>
     </thead>
     <tbody>
@@ -71,10 +71,10 @@
             <td>{{ entity.status }}</td>
             <td>
         <a class="btn btn-mini" href="{{ path('issue_show', { 'id': entity.id }) }}">
-            {{ 'views.actions.show'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+            {{ 'views.actions.show'|trans({}, 'Smith981CrudGeneratorBundle') }}
         </a>
         <a class="btn btn-mini" href="{{ path('issue_edit', { 'id': entity.id }) }}">
-            {{ 'views.actions.edit'|trans({}, 'JordiLlonchCrudGeneratorBundle') }}
+            {{ 'views.actions.edit'|trans({}, 'Smith981CrudGeneratorBundle') }}
         </a>            </td>
         </tr>
     {% endfor %}
