@@ -4,6 +4,10 @@
 		display:none;
 	}
 
+	.print-only {
+		display:none;
+	}
+
 }
 
 /* mobile only */
@@ -80,6 +84,10 @@
 
 	#story-content {
 		width: 66%;
+	}
+
+	.screen-only {
+		display:none;
 	}
 }
 
