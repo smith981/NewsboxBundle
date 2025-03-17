@@ -1,6 +1,8 @@
 NewsboxBundle
 =============
 
+# Note: This repository has not been maintained for quite some time.
+
 A simple issue-based online publishing platform. Not a blog.
 
 ## Installation
@@ -145,7 +147,6 @@ In routing_dev.yml, remove all of the demo routes:
 #    resource: "@AcmeDemoBundle/Controller/DemoController.php"
 #    type:     annotation
 #    prefix:   /demo
-```
 
 _wdt:
     resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"
@@ -164,4 +165,4 @@ _main:
 
 ```
 
-6. You should be ready to go at this point. Browse to /app_dev.php/admin to log in and start adding issues, and stories which relate to those issues. Those are the only two entity types added by this package. The rest is just an admin console and view templates.
+6. You should be ready to go at this point. Browse to `/app_dev.php/admin` to log in and start adding issues, and stories which relate to those issues. Those are the only two entity types added by this package. The rest is just an admin console and view templates.
